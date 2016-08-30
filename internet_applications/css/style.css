@@ -1,0 +1,30 @@
+/* Header */
+h1 {
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #dddddd;
+    height: 10%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+li {
+    float: left;
+    display: inline;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
