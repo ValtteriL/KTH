@@ -1,30 +1,48 @@
 /* Header */
 h1 {
-
+    position: fixed;
+    top: 50px;
 }
 
+/* paragraph */
+p {
+    position: fixed;
+    top: 100px;
+}
+
+/* image */
+img {
+    height: 50px;
+    width: 50px;
+}
+
+/* main menu */
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 100%;
     background-color: #dddddd;
-    height: 10%; /* Full height */
+    height: 5%;
     position: fixed; /* Make it stick, even on scroll */
-    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+    top: 0px;
+    left: 0px;
 }
-
 li {
     float: left;
     display: inline;
-}
 
+}
 .active {
     background-color: #4CAF50;
 }
-
 a {
     display: block;
     padding: 8px;
     background-color: #dddddd;
+}
+
+/* Body */
+body {
+    background-color: rgb(255, 97, 121);
 }
