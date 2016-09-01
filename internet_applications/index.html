@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8"> <!-- define character set -->
-        <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> --> <!-- external reset.css -->
+        <link rel="stylesheet" type="text/css" href="css/reset.css"> <!-- external reset.css -->
         <link rel="stylesheet" type="text/css" href="css/style.css"> <!-- external stylesheet -->
         <title>Tasty Recipes | best recipes in the web</title>
     </head>
@@ -18,23 +18,33 @@
             <ul>
                 <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="calendar.html">Calendar</a></li>
-                <li>Recipes</li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Dropdown</a>
+                    <div class="dropdown-content">
+                        <a href="recipes/meatballs.html">Meatballs</a>
+                        <a href="recipes/pancakes.html">Pancakes</a>
+                    </div>
+                </li>
             </ul>
         </div>
 
         <!-- Middle section -->
         <div class="section group">
             <div class="col span_1_of_2"> <!-- Left div -->
-                This is column 1
+                TTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT
+                TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTEXT
             </div>
             <div class="col span_1_of_2"> <!-- Right div -->
-                This is column 2
+                <div id="promo">
+                    <h3>Check out our awesome calender!!</h3>
+                </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer>
-            <p>This is footer</p>
+            <p>(R) Tasty recipes</p>
+            <p>Contact: admin@tastyrecipes.com</p>
         </footer>
     </body>
 </html>
