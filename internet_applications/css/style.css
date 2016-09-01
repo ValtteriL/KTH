@@ -1,23 +1,19 @@
 /* Header */
-h1 {
-    position: fixed;
-    top: 50px;
+header {
+    display: block;
+    position: relative;
+    top: 0%;
+    background-color: #eeeeee;
+    border-style: solid;
+    border-width: 1px;
 }
-
-/* paragraph */
-p {
-    position: fixed;
-    top: 100px;
+header h1 {
 }
-
-/* image */
-img {
-    height: 50px;
-    width: 50px;
+header p {
 }
 
 /* main menu */
-ul {
+#menu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -25,24 +21,71 @@ ul {
     background-color: #dddddd;
     height: 5%;
     position: fixed; /* Make it stick, even on scroll */
-    top: 0px;
-    left: 0px;
+    top: 20%;
+    border-style: solid;
+    border-width: 1px;eft: 0px;
 }
-li {
+#menu li {
     float: left;
     display: inline;
 
 }
-.active {
+#menu .active {
     background-color: #4CAF50;
 }
-a {
+#menu a {
     display: block;
     padding: 8px;
     background-color: #dddddd;
 }
 
-/* Body */
-body {
-    background-color: rgb(255, 97, 121);
+
+/* dividers */
+/*  SECTIONS  */
+.section {
+    position: relative;
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TWO  */
+.span_2_of_2 {
+    width: 100%;
+}
+.span_1_of_2 {
+    width: 49.2%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+@media only screen and (max-width: 480px) {
+    .col { 
+        margin: 1% 0 1% 0%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .span_2_of_2, .span_1_of_2 { width: 100%; }
+}
+
+/* footer */
+footer {
+    display: block;
+    position: relative;
+    width: 100%;
+    top: 150px;
 }
