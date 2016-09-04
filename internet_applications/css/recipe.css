@@ -1,0 +1,101 @@
+h2 {
+    font-size: 20px;
+    background-color: #eeeeee; 
+}
+div.subdiv {
+    padding: 4px;
+    margin: 2px;
+}
+
+
+/**** foodname div ****/
+#foodname {
+    border-style: solid;
+    border-width: 2px;
+    height: 5%;
+}
+#foodname h1 {
+    font-size: 24px;
+    background-color: #eeeeee;
+}
+
+/**** ingredients div ****/
+#ingredients {
+    border-style: solid;
+    border-width: 2px;
+}
+#ingredients ul {
+    list-style: circle;
+    margin-top: 2px;
+}
+#ingredients li {
+    display: list-item; /* display it like a list item */
+    position: relative;
+    left: 2.5%;
+}
+
+/**** directions div ****/
+#directions {
+    border-style: solid;
+    border-width: 2px;
+}
+#directions ol {
+    list-style: decimal;
+    margin-top: 2px;
+}
+#directions li {
+    display: list-item;
+    position: relative;
+    left: 2.5%;
+}
+
+
+/**** picture div ****/
+#picture {
+    border-style: solid;
+    border-width: 2px;
+    width: 100%;
+}
+#picture img {
+    height: 100%;
+    width: 100%;
+}
+
+/**** nutrifacts div ****/
+#nutrifacts {
+    border-style: solid;
+    border-width: 2px;
+}
+#nutrifacts table, #nutrifacts th, #nutrifacts td {
+   border: 1px solid black;
+}
+#nutrifacts table {
+    width: 100%;
+    margin-top: 2px;
+}
+
+
+/**** comments div ****/
+#comments {
+    border-style: solid;
+    border-width: 2px;
+}
+.comment {
+    border-style: solid;
+    border-width: 2px;
+    margin-top: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+.comment h3 {
+    font-size: 18px;
+    background-color: #F4FA58;
+}
+.commentform {
+    margin-top: 2px;
+    padding: 4px;
+}
+.commentform textarea {
+    resize: none;
+    margin-top: 2px;
+}
