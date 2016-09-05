@@ -32,6 +32,7 @@ div.subdiv {
     display: list-item; /* display it like a list item */
     position: relative;
     left: 2.5%;
+    width: 97.5%; /* so that it fits the screen */
 }
 
 /**** directions div ****/
@@ -47,6 +48,7 @@ div.subdiv {
     display: list-item;
     position: relative;
     left: 2.5%;
+    width: 97.5%; /* so that it fits the screen */
 }
 
 
