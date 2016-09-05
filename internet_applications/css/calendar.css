@@ -1,7 +1,9 @@
 #calendar {
-    position: relative;
-    left: 10%;
-    width: 80%;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    position: static;
+    clear: both; /* dont let menu go on top */
 }
 
 * {box-sizing: border-box;}
@@ -52,7 +54,7 @@ ul {list-style-type: none;}
     list-style-type: none;
     display: inline-block;
     width: 13.6%;
-    height: 60px;
+    height: 100px;
     text-align: center;
     margin-bottom: 5px;
     font-size: 12px;

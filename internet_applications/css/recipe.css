@@ -3,15 +3,15 @@ h2 {
     background-color: #eeeeee; 
 }
 div.subdiv {
-    padding: 4px;
-    margin: 2px;
+    padding: .5em;
+    margin: .5em;
 }
 
 
 /**** foodname div ****/
 #foodname {
     border-style: solid;
-    border-width: 2px;
+    border-width: .15em;
     height: 5%;
 }
 #foodname h1 {
@@ -22,32 +22,32 @@ div.subdiv {
 /**** ingredients div ****/
 #ingredients {
     border-style: solid;
-    border-width: 2px;
+    border-width: .15em;
 }
 #ingredients ul {
     list-style: circle;
-    margin-top: 2px;
+    margin-top: .5em;
 }
 #ingredients li {
     display: list-item; /* display it like a list item */
     position: relative;
-    left: 2.5%;
+    left: 1em;
     width: 97.5%; /* so that it fits the screen */
 }
 
 /**** directions div ****/
 #directions {
     border-style: solid;
-    border-width: 2px;
+    border-width: .15em;
 }
 #directions ol {
     list-style: decimal;
-    margin-top: 2px;
+    margin-top: .5em;
 }
 #directions li {
     display: list-item;
     position: relative;
-    left: 2.5%;
+    left: 1em;
     width: 97.5%; /* so that it fits the screen */
 }
 
@@ -55,38 +55,36 @@ div.subdiv {
 /**** picture div ****/
 #picture {
     border-style: solid;
-    border-width: 2px;
-    width: 100%;
+    border-width: .15em;
 }
 #picture img {
-    height: 100%;
-    width: 100%;
+    max-width: 100%;
 }
 
 /**** nutrifacts div ****/
 #nutrifacts {
     border-style: solid;
-    border-width: 2px;
+    border-width: .15em;
 }
 #nutrifacts table, #nutrifacts th, #nutrifacts td {
-   border: 1px solid black;
+   border: .15em solid black;
 }
 #nutrifacts table {
     width: 100%;
-    margin-top: 2px;
+    margin-top: .5em;
 }
 
 
 /**** comments div ****/
 #comments {
     border-style: solid;
-    border-width: 2px;
+    border-width: .15em;
 }
 .comment {
     border-style: solid;
-    border-width: 2px;
-    margin-top: 2px;
-    padding: 2px;
+    border-width: .15em;
+    margin-top: .5em;
+    padding: .5em;
     border-radius: 5px;
 }
 .comment h3 {
@@ -94,10 +92,12 @@ div.subdiv {
     background-color: #F4FA58;
 }
 .commentform {
-    margin-top: 2px;
-    padding: 4px;
+    margin-top: .5em;
+    padding: 1em;
 }
 .commentform textarea {
     resize: none;
-    margin-top: 2px;
+    margin-top: .5em;
+    width: 80%;
 }
+

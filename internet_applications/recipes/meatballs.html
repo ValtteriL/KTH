@@ -15,6 +15,8 @@
         </header>
 
         <!-- Menu -->
+        <label for="show-menu" class="show-menu">Show Menu</label>
+        <input type="checkbox" id="show-menu" role="button">
         <div id="menu">
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -76,11 +78,11 @@
                     </div>
  
                     <div class="commentform">
-                        <form action="#">
+                        <form id="usrform" action="#">
                             <label for="name">Name:</label>
                             <input type=text id="name"></input><br>
                             <label for="comment">Comment:</label>
-                            <textarea rows="4" cols="40" name="comment" form="usrform"></textarea><br>
+                            <textarea name="comment" form="usrform"></textarea><br>
                             <input type=submit value="Post comment"></input>
                         </form>
                     </div>
@@ -88,7 +90,7 @@
             </div>
             <div class="col span_1_of_2"> <!-- Right div -->
                 <!-- Picture -->
-                <div íd="picture" class="subdiv">
+                <div id="picture" class="subdiv">
                     <img src="../images/meatballs.png" alt="Meatballs picture">
                 </div>
                 <!-- Nutritional facts -->
