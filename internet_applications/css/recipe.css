@@ -27,12 +27,10 @@ div.subdiv {
 #ingredients ul {
     list-style: circle;
     margin-top: .5em;
+    padding-left: 1em;
 }
 #ingredients li {
     display: list-item; /* display it like a list item */
-    position: relative;
-    left: 1em;
-    width: 97.5%; /* so that it fits the screen */
 }
 
 /**** directions div ****/
@@ -43,12 +41,10 @@ div.subdiv {
 #directions ol {
     list-style: decimal;
     margin-top: .5em;
+    padding-left: 1em;
 }
 #directions li {
     display: list-item;
-    position: relative;
-    left: 1em;
-    width: 97.5%; /* so that it fits the screen */
 }
 
 
@@ -86,6 +82,7 @@ div.subdiv {
     margin-top: .5em;
     padding: .5em;
     border-radius: 5px;
+    overflow: auto; /* handle overflowing comments */
 }
 .comment h3 {
     font-size: 18px;

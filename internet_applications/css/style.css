@@ -6,27 +6,39 @@ html, body {
 }
 body {
     font-family: sans-serif, Times, serif;
+    font-style: normal; /* use normal style font */
+    background-color: #FFF; /* specify background color */
+    color: #000; /* specify default font color */
 }
-h1 { font-size: 2em; }
-h2 { font-size: 1em; }
-p { font-size: 1em; }
+h1 { 
+    font-size: 2em;
+    padding-left: .25em;
+}
+h2 { font-size: 1.5em; }
+p { 
+    font-size: 1em;
+}
+#promo a:link, #promo a:visited {
+    background-color: #A9F5BC;
+    padding: .5em .5em;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+#promo a:hover, #promo a:active {
+    background-color: #58FA82;
+}
 
 
 /**** Header ****/
 header {
     display: block;
-    height: 4em;
     background-color: #eeeeee;
-}
-header h1 {
-    position: relative;
-    left: .5%;
-    width: 99.5%; /* so that it fits the screen */
+    overflow: auto;
 }
 header p {
-    position: relative;
-    left: .5%;
-    width: 99.5%; /* so that it fits the screen */
+    padding-left: 1em;
 }
 
 
@@ -123,7 +135,7 @@ input[type=checkbox]:checked ~ #menu{
         display: block;
         margin-bottom: 1px;
     }
-    /*Display 'show menu' link*/
+    /*Display 'show menu' button*/
 	.show-menu {
 		display:block;
 	}
@@ -148,10 +160,15 @@ input[type=checkbox]:checked ~ #menu{
     width: 49.2%;
     overflow: auto;
 }
+.span_1_of_2 p {
+    padding: .25em;
+}
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 @media only screen and (max-width: 480px) {
     .col { margin: 1% 0 1% 0%; }
-    .span_1_of_2 { width: 100%; }
+    .span_1_of_2 {
+        width: 100%;
+    }
 }
 
 /* Promo */
