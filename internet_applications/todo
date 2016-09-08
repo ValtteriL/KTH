@@ -1,0 +1,12 @@
+Authentication: username-password
+Comments: logged in users must be able to write comments
+Delete comments: logged users must be able to delete their own comments
+Registration: users must be able to register to the site
+XML: all recipes should be stored into XML files following the format specified
+
+Input filtering
+Password encryption
+Cross-site scripting
+
+Database: users (username VARCHAR(12), password CHAR(128))
+Database: comments (username VARCHAR(12), recipeId INT, comment VARCHAR(300))
