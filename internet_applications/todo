@@ -8,5 +8,5 @@ Input filtering
 Password encryption
 Cross-site scripting
 
-Database: users (username VARCHAR(12), password CHAR(128))
+Database: users (id INT, username VARCHAR(12), password CHAR(128))
 Database: comments (username VARCHAR(12), recipeId INT, comment VARCHAR(300))

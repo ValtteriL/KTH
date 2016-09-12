@@ -1,3 +1,10 @@
+<?php
+include_once 'includes/db-connect.php';
+include_once 'includes/functions.php';
+
+session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,7 +25,7 @@
         <input type="checkbox" id="show-menu" role="button">
         <div id="menu">
             <ul>
-                <li><a class="active" href="index.html">Home</a></li>
+                <li><a class="active" href="index.php">Home</a></li>
                 <li><a href="calendar.html">Calendar</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Recipes</a>
@@ -27,6 +34,13 @@
                         <a href="recipes/pancakes.html">Pancakes</a>
                     </div>
                 </li>
+
+                <?php if (login_check($mysqli) == true) : ?>
+                <li>Logged in as <?php echo htmlentities($_SESSION['username']); ?></li>
+                <?php else : ?>
+                <li><a href="login.php">Log in</a></li>
+                <?php endif; ?>
+
             </ul>
         </div>
 

