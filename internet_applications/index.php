@@ -30,15 +30,17 @@ session_start();
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Recipes</a>
                     <div class="dropdown-content">
-                        <a href="recipes/meatballs.html">Meatballs</a>
-                        <a href="recipes/pancakes.html">Pancakes</a>
+                        <a href="recipes/meatballs.php">Meatballs</a>
+                        <a href="recipes/pancakes.php">Pancakes</a>
                     </div>
                 </li>
 
                 <?php if (login_check($mysqli) == true) : ?>
-                <li>Logged in as <?php echo htmlentities($_SESSION['username']); ?></li>
+                <li class="login"><a href="#">Logged in as <?php echo htmlentities($_SESSION['username']); ?></a></li>
+                <li class="login"><a href="logout.php">Log out</a></li>
                 <?php else : ?>
-                <li><a href="login.php">Log in</a></li>
+                <li class="login"><a href="login.php">Log in</a></li>
+                <li class="login"><a href="register.php">Register</a></li>
                 <?php endif; ?>
 
             </ul>

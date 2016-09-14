@@ -80,20 +80,29 @@ function login_check($mysqli) {
     }
 }
 
+
+// TODO
 function printcomments($id, $username, $mysqli)
 {
-    if ($stmt = $mysqli->prepare("SELECT comment, username FROM comments WHERE recipeid = ?")) 
+    if ($stmt = $mysqli->prepare("SELECT id, comment, username FROM comments WHERE recipeid = ?")) 
     {
         $stmt->bind_param('i', $id);
         $stmt->execute();
-        $stmt->bind_result($comment, $author);
+        $stmt->bind_result($comment_id, $comment, $author);
     
         while ($stmt->fetch())
         {
-            if (true) /* if this comment was written by this user */
+            echo '<div class="comment">';
+            echo '<h3>' . $author . '</h3>';
+            echo '<p>' . $comment . '</p>';
+            if ($username == $author) /* if this comment was written by this user */
             {
-                echo 'comment = ' . $comment . ', author = ' . $author . '<br>';
+                echo '<form action="../deletecomment.php" method="POST">
+                    <input type=hidden name=comment_id value='.$comment_id.'> 
+                    <input type="submit" value="delete">
+                     </form>';
             }
+            echo '</div>';
         }
     }
     else
@@ -102,3 +111,4 @@ function printcomments($id, $username, $mysqli)
 	}
 
 }
+

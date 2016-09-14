@@ -89,7 +89,7 @@ session_start();
                     </div>
  
                     <div class="commentform">
-                        <form id="usrform" action="#">
+                        <form id="usrform" action="../postcomment.php" method="POST">
                             <label for="name">Name:</label>
                             <input type=text id="name"></input><br>
                             <label for="comment">Comment:</label>

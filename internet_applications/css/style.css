@@ -63,6 +63,11 @@ header p {
     border-right: 1px solid #bbb;
     height: 100%;
 }
+#menu .login {
+    float: right;
+    border-right: 0;
+    border-left: 1px solid #bbb;
+}
 #menu .active {
     background-color: #4CAF50;
 }
