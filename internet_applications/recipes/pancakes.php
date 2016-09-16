@@ -2,7 +2,49 @@
 include_once '../includes/db-connect.php';
 include_once '../includes/functions.php';
 
-session_start(); 
+session_start();
+
+/* if the user is logged in and tries to delete comments or write one */
+if (login_check($mysqli) == true) { 
+    $username = htmlentities($_SESSION['username']);
+    
+    if(isset($_POST['comment_id'])) {
+        $comment_id = $_POST['comment_id'];
+
+        if ($stmt = $mysqli->prepare("DELETE FROM comments WHERE id = ? AND username = ?")) 
+        {
+            $stmt->bind_param('is', $comment_id, $username);
+            $stmt->execute();
+        
+            if($stmt->affected_rows > 0) {
+                /* comment deleted */
+            } else {
+                echo '<div class="err">Could not delete comment. Are you the author?</div>';
+            }
+        } else {
+            echo '<div class="err">Mysql Error: ' . $mysqli->error . '</div>'; /* for debugging */
+        }
+    }
+    else if(isset($_POST['comment'])) {
+        $comment = $_POST['comment'];
+        $recipe_id = 2;
+
+        if ($stmt = $mysqli->prepare("INSERT INTO comments (recipeid, username, comment) VALUES(?, ?, ?)")) 
+        {
+            $stmt->bind_param('iss', $recipe_id, $username, $comment);
+            $stmt->execute();
+        
+            if($stmt->affected_rows > 0) {
+                /* comment added */
+            } else {
+                echo '<div class="err">Could not insert comment</div>';
+            }
+        } else {
+            echo '<div class="err">Mysql Error: ' . $mysqli->error . '</div>'; /* for debugging */
+        }
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +69,7 @@ session_start();
         <div id="menu">
             <ul>
                 <li><a href="../index.php">Home</a></li>
-                <li><a href="../calendar.html">Calendar</a></li>
+                <li><a href="../calendar.php">Calendar</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Recipes</a>
                     <div class="dropdown-content">
@@ -35,7 +77,13 @@ session_start();
                         <a class="active" href="pancakes.php">Pancakes</a>
                     </div>
                 </li>
-                <li><a href="login.php">Log in</a></li>
+                <?php if (login_check($mysqli) == true) : ?>
+                <li class="login"><a href="#">Logged in as <?php echo htmlentities($_SESSION['username']); ?></a></li>
+                <li class="login"><a href="../logout.php">Log out</a></li>
+                <?php else : ?>
+                <li class="login"><a href="../login.php">Log in</a></li>
+                <li class="login"><a href="../register.php">Register</a></li>
+                <?php endif; ?>
             </ul>
         </div>
 
@@ -69,7 +117,14 @@ session_start();
                 </div>
                 <!-- Comments -->
                 <div id="comments" class="subdiv">
-                    <h2>Comments</h2>
+                <h2>Comments</h2>
+                    <?php
+                        if (login_check($mysqli) == true) { 
+                            printcomments(2, htmlentities($_SESSION['username']), $mysqli, "meatballs.php");
+                        } else {
+                            printcomments(2, NULL, $mysqli, "meatballs.php");
+                        }
+                    ?>
                     <div class="comment">
                         <h3>James</h3>
                         <p>Pancakes even my dog doesn't like.</p>
@@ -84,13 +139,15 @@ session_start();
                     </div>
 
                     <div class="commentform">
-                        <form id="usrform" action="#">
-                            <label for="name">Name:</label>
-                            <input type=text id="name"></input><br>
+                    <?php if (login_check($mysqli) == true) : ?>
+                        <form id="usrform" action="pancakes.php" method="POST">
                             <label for="comment">Comment:</label>
                             <textarea name="comment" form="usrform"></textarea><br>
                             <input type=submit value="Post comment"></input>
                         </form>
+                    <?php else : ?>
+                        <h3>Log in to comment</h3>
+                    <?php endif; ?>
                     </div>
                 </div>
             </div>

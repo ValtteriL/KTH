@@ -24,16 +24,6 @@ function regformhash(form, uid, password, conf) {
         alert('You must provil add of the requested details. Please try again');
         return false;
     }
- 
-    // Check the username
- 
-    re = /^\w+$/; 
-    if(!re.test(form.username.value)) { 
-        alert("Username must contain only letters, numbers and underscores. Please try again");
-        form.username.focus();
-        return false;
-    }
- 
      
     // Check password and confirmation are the same
     if (password.value != conf.value) {

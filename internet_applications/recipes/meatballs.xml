@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cookbook version="46">
+    <recipe>
+        <title>My recipe</title>
+        <preptime>15 min</preptime>
+        <cooktime>20 min</cooktime>
+        <totaltime>35 min</totaltime>
+        <description>
+            <li>Desc 1</li>
+            <li>Desc 2</li>
+        </description>
+        <ingredient>
+            <li>Ingredient 1</li>
+            <li>Ingredient 2</li>
+        </ingredient>
+        <recipetext>
+            <li>Step 1</li>
+            <li>Step 2</li>
+        </recipetext>
+        <url>http://www.recipeurl</url>
+        <video>http://www.videourl</video>
+        <quantity>4</quantity>
+        <imagepath>/mnt/sdcard/MyCookBook/images/recipe_img.png</imagepath>
+        <imageurl>http://www.recipeurl/original_image</imageurl>
+        <comments>Your comments</comments>
+        <source>Source</source>
+        <video>Video URL</video>
+        <nutrition>
+            <li>Nutritional information</li>
+            <li></li>
+        </nutrition>
+        <rating>5</rating>
+        <category>category 1</category>
+        <category>category 2</category>
+    </recipe>
+    <recipe>
+        <title>Crepes</title>
+        <preptime>10 min</preptime>
+        <cooktime>20 min</cooktime>
+        <totaltime>30 min</totaltime>
+        <ingredient>
+            <li>1 1/2 c. flour</li>
+            <li>2 c. milk</li>
+            <li>2 eggs</li>
+            <li>1 1/2 tbsp. oil</li>
+            <li>1 tbsp. sugar</li>
+            <li>Little salt melted</li>
+        </ingredient>
+        <recipetext>
+            <li>Pour the milk into the flour. Stir.</li>
+            <li>Add the oil, the beaten eggs and the sugar. Stir again.</li>
+            <li>Let the batter rest for 2 hours. The batter must be fluid. If not, add a little more milk. </li>
+            <li></li>
+            <li>Take a frying pan, oil it and pour a small amount of batter and spread it on the bottom. Cook it on one side, then the other.</li>
+            <li>The "French Crepes" must be very thin. </li>
+            <li>You can put butter or sugar or jelly or melted chocolate on them.</li>
+        </recipetext>
+        <url></url>
+        <quantity></quantity>
+        <imagepath>/mnt/sdcard/MyCookBook/images/crepes.png</imagepath>
+        <imageurl></imageurl>
+        <comments></comments>
+        <source>Grandma</source>
+        <video>http://www.youtube.com/embed/FGME3FVga-g?feature=oembed</video>
+        <nutrition></nutrition>
+        <rating>4</rating>
+        <category>Dessert</category>
+    </recipe>
+</cookbook>

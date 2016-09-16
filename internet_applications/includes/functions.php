@@ -3,8 +3,8 @@ include_once 'db-config.php';
 
 function login($username, $password, $mysqli) {
     // Using prepared statements means that SQL injection is not possible. 
-    if ($stmt = $mysqli->prepare("SELECT id, password FROM users WHERE username = ? LIMIT 1")) 
-    {
+    if ($stmt = $mysqli->prepare("SELECT id, password FROM users WHERE username = ? LIMIT 1")) {
+
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $stmt->store_result();
@@ -12,18 +12,14 @@ function login($username, $password, $mysqli) {
         $stmt->bind_result($user_id, $db_password);
         $stmt->fetch();
     
-        if ($stmt->num_rows == 1)
-        {
-            if (password_verify($password, $db_password))
-            {
+        if ($stmt->num_rows == 1) {
+            if (password_verify($password, $db_password)) {
                 $user_browser = $_SERVER['HTTP_USER_AGENT']; /* Get the user-agent for secure login string */
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['username'] = $username;
                 $_SESSION['login_string'] = hash('sha512', $db_password . $user_browser);
                 return true; /* Login succesful */
-            }
-            else
-            {
+            } else {
                 return false; /* Invalid password */
             }
         }
@@ -81,8 +77,7 @@ function login_check($mysqli) {
 }
 
 
-// TODO
-function printcomments($id, $username, $mysqli)
+function printcomments($id, $username, $mysqli, $filename)
 {
     if ($stmt = $mysqli->prepare("SELECT id, comment, username FROM comments WHERE recipeid = ?")) 
     {
@@ -97,7 +92,7 @@ function printcomments($id, $username, $mysqli)
             echo '<p>' . $comment . '</p>';
             if ($username == $author) /* if this comment was written by this user */
             {
-                echo '<form action="../deletecomment.php" method="POST">
+                echo '<form action="'.$filename.'" method="POST">
                     <input type=hidden name=comment_id value='.$comment_id.'> 
                     <input type="submit" value="delete">
                      </form>';

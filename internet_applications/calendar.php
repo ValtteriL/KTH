@@ -1,3 +1,10 @@
+<?php
+include_once 'includes/db-connect.php';
+include_once 'includes/functions.php';
+
+session_start(); 
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,15 +27,21 @@
         <div id="menu">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a class="active" href="calendar.html">Calendar</a></li>
+                <li><a class="active" href="calendar.php">Calendar</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Recipes</a>
                     <div class="dropdown-content">
-                        <a href="recipes/meatballs.html">Meatballs</a>
-                        <a href="recipes/pancakes.html">Pancakes</a>
+                        <a href="recipes/meatballs.php">Meatballs</a>
+                        <a href="recipes/pancakes.php">Pancakes</a>
                     </div>
                 </li>
-                <li><a href="login.php">Log in</a></li>
+                <?php if (login_check($mysqli) == true) : ?>
+                <li class="login"><a href="#">Logged in as <?php echo htmlentities($_SESSION['username']); ?></a></li>
+                <li class="login"><a href="../logout.php">Log out</a></li>
+                <?php else : ?>
+                <li class="login"><a href="../login.php">Log in</a></li>
+                <li class="login"><a href="../register.php">Register</a></li>
+                <?php endif; ?>
             </ul>
         </div>
 
@@ -66,7 +79,7 @@
                 <li>10</li>
                 <li>11</li>
                 <li>12</li>
-                <li><p>13</p><a href="recipes/meatballs.html"><img src="images/meatballs.png" alt="Meatballs image"></a></li> <!-- Use p tag so the number will stay on top of the image -->
+                <li><p>13</p><a href="recipes/meatballs.php"><img src="images/meatballs.png" alt="Meatballs image"></a></li> <!-- Use p tag so the number will stay on top of the image -->
                 <li>14</li>
                 <li>15</li>
                 <li>16</li>
@@ -79,7 +92,7 @@
                 <li>23</li>
                 <li>24</li>
                 <li>25</li>
-                <li><p>26</p><a href="recipes/pancakes.html"><img src="images/pancakes.png" alt="Pancakes image"></a></li>
+                <li><p>26</p><a href="recipes/pancakes.php"><img src="images/pancakes.png" alt="Pancakes image"></a></li>
                 <li>27</li>
                 <li>28</li>
                 <li>29</li>

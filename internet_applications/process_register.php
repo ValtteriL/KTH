@@ -43,20 +43,18 @@ if (isset($_POST['username'], $_POST['p'])) {
         // Insert the new user into the database 
         if ($insert_stmt = $mysqli->prepare("INSERT INTO users (username, password) VALUES (?, ?)")) {
             $insert_stmt->bind_param('ss', $username, $password);
-            // Execute the prepared query.
-            if (! $insert_stmt->execute()) {
-                header('Location: register.php?err=Registration failure: INSERT');
+            if ($insert_stmt->execute()) {
+                header('Location: ./register_success.php');
+            } else {
+                echo 'Error inserting to database'. $mysqli->error;
             }
+        } else {
+            echo 'Error preparing database query';
         }
-        header('Location: ./register_success.php');
-    }
-    else
-    {
+    } else {
         echo $error_msg;
     }
-}
-else
-{
+} else {
     echo 'Did not get da parameters...';
 }
 ?>

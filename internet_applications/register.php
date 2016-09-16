@@ -1,3 +1,10 @@
+<?php
+include_once 'includes/db-connect.php';
+include_once 'includes/functions.php';
+
+session_start(); 
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,16 +29,21 @@
         <div id="menu">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="calendar.php">Calendar</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Recipes</a>
                     <div class="dropdown-content">
-                        <a href="recipes/meatballs.html">Meatballs</a>
-                        <a href="recipes/pancakes.html">Pancakes</a>
+                        <a href="recipes/meatballs.php">Meatballs</a>
+                        <a href="recipes/pancakes.php">Pancakes</a>
                     </div>
                 </li>
-                <li><a href="login.php">Log in</a></li>
-                <li><a class="active" href="register.php">Register</a></li>
+                <?php if (login_check($mysqli) == true) : ?>
+                <li class="login"><a href="#">Logged in as <?php echo htmlentities($_SESSION['username']); ?></a></li>
+                <li class="login"><a href="logout.php">Log out</a></li>
+                <?php else : ?>
+                <li class="login"><a href="login.php">Log in</a></li>
+                <li class="active login"><a href="register.php">Register</a></li>
+                <?php endif; ?>
             </ul>
         </div>
 

@@ -26,7 +26,7 @@ session_start();
         <div id="menu">
             <ul>
                 <li><a class="active" href="index.php">Home</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="calendar.php">Calendar</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Recipes</a>
                     <div class="dropdown-content">
@@ -53,7 +53,7 @@ session_start();
             </div>
             <div class="col span_1_of_2"> <!-- Right div -->
                 <div id="promo">
-                    <h3>Check out our awesome <a href="calendar.html">calendar</a>!!</h3>
+                    <h3>Check out our awesome <a href="calendar.php">calendar</a>!!</h3>
                 </div>
             </div>
         </div>
