@@ -1,69 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cookbook version="46">
     <recipe>
-        <title>My recipe</title>
+        <title>Meatballs</title>
         <preptime>15 min</preptime>
         <cooktime>20 min</cooktime>
         <totaltime>35 min</totaltime>
         <description>
-            <li>Desc 1</li>
-            <li>Desc 2</li>
+            <li>Ever wanted to make the best meatballs on earth? Try this recipe, you won't be dissappointed</li>
         </description>
         <ingredient>
-            <li>Ingredient 1</li>
-            <li>Ingredient 2</li>
+            <li>1lb ground beef</li>
+            <li>1 large egg</li>
+            <li>1/4 cup onion</li>
+            <li>1/3 cup italian seasoned breadcrumbs</li>
+            <li>1/4 cup milk</li>
+            <li>1 teaspoon Worcestershire sauce</li>
+            <li>salt, to taste</li>
+            <li>fresh ground black pepper, to taste</li>
         </ingredient>
         <recipetext>
-            <li>Step 1</li>
-            <li>Step 2</li>
+            <li>Mix the sirloin, egg, milk, salt/pepper, and the Worcestershire sauce.</li>
+            <li>Add as much of the bread crumbs as you need (mixture should be slightly moist).</li>
+            <li>Roll into desired sized balls.</li>
+            <li>Preheat oven to 375F.</li>
+            <li>Plane onto a cookie sheet or 13x9 baking dish.</li>
+            <li>Bake meatballs for 15-23minutes or until no pink remains.</li>
+            <li>Drain onto papel towels.</li>
         </recipetext>
-        <url>http://www.recipeurl</url>
-        <video>http://www.videourl</video>
-        <quantity>4</quantity>
-        <imagepath>/mnt/sdcard/MyCookBook/images/recipe_img.png</imagepath>
-        <imageurl>http://www.recipeurl/original_image</imageurl>
-        <comments>Your comments</comments>
-        <source>Source</source>
+        <url>recipes/meatballs.php</url>
         <video>Video URL</video>
+        <quantity>20</quantity>
+        <imagepath>../images/meatballs.png</imagepath>
+        <imageurl>images/meatballs.png</imageurl>
+        <comments></comments>
+        <source>Interwebs</source>
         <nutrition>
-            <li>Nutritional information</li>
-            <li></li>
+            <li>Näringsvärde /100g</li>
+            <li>Energi 1820kJ/433kcal</li>
+            <li>Protein 8,7g</li>
+            <li>Kolhydrater 66g</li>
+            <li>Fett 15g</li>
+            <li>Kostfiber 5,6g</li>
+            <li>Natrium 0,08g</li>
         </nutrition>
         <rating>5</rating>
-        <category>category 1</category>
-        <category>category 2</category>
-    </recipe>
-    <recipe>
-        <title>Crepes</title>
-        <preptime>10 min</preptime>
-        <cooktime>20 min</cooktime>
-        <totaltime>30 min</totaltime>
-        <ingredient>
-            <li>1 1/2 c. flour</li>
-            <li>2 c. milk</li>
-            <li>2 eggs</li>
-            <li>1 1/2 tbsp. oil</li>
-            <li>1 tbsp. sugar</li>
-            <li>Little salt melted</li>
-        </ingredient>
-        <recipetext>
-            <li>Pour the milk into the flour. Stir.</li>
-            <li>Add the oil, the beaten eggs and the sugar. Stir again.</li>
-            <li>Let the batter rest for 2 hours. The batter must be fluid. If not, add a little more milk. </li>
-            <li></li>
-            <li>Take a frying pan, oil it and pour a small amount of batter and spread it on the bottom. Cook it on one side, then the other.</li>
-            <li>The "French Crepes" must be very thin. </li>
-            <li>You can put butter or sugar or jelly or melted chocolate on them.</li>
-        </recipetext>
-        <url></url>
-        <quantity></quantity>
-        <imagepath>/mnt/sdcard/MyCookBook/images/crepes.png</imagepath>
-        <imageurl></imageurl>
-        <comments></comments>
-        <source>Grandma</source>
-        <video>http://www.youtube.com/embed/FGME3FVga-g?feature=oembed</video>
-        <nutrition></nutrition>
-        <rating>4</rating>
-        <category>Dessert</category>
+        <category>salty</category>
+        <category>best of tastyrecipes</category>
     </recipe>
 </cookbook>
+
