@@ -147,7 +147,9 @@ if (file_exists('meatballs.xml')) {
                 <!-- Nutritional facts -->
                 <div id="nutrifacts" class="subdiv">
                     <h2>Nutritional facts</h2>
+                    <ul>
                     <?php foreach($xml->recipe[0]->nutrition->li as $ingredient) { echo '<li>' . $ingredient . '</li>'; } ?>
+                    </ul>
                 </div>
             </div>
         </div>
