@@ -56,7 +56,7 @@ session_start();
                 <input type="password" name="password" id="password"/>
                 <label for="passwordagain">Confirm password</label>
                 <input type="password" name="passwordagain" id="passwordagain"/>
-                <input type="button" value="login" onclick="regformhash(this.form, form.username, form.password, form.passwordagain)"/>
+                <input type="button" value="Register" onclick="regformhash(this.form, form.username, form.password, form.passwordagain)"/>
             </form>
         </div>
 
