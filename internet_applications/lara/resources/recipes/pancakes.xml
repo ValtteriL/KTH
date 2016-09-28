@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cookbook version="46">
+    <recipe>
+        <id>2</id>
+        <title>Pancakes</title>
+        <preptime>10 min</preptime>
+        <cooktime>20 min</cooktime>
+        <totaltime>30 min</totaltime>
+        <description>
+            <li>Delicious and dangerously easy pancake recept to keep you from getting fit</li>
+        </description>
+        <ingredient>
+            <li>1 cup all-purpose flour</li>
+            <li>1 egg</li>
+            <li>2 tablespoons white sugar</li>
+            <li>1 cup milk</li>
+            <li>2 teaspoons baking powder</li>
+            <li>2 tablespoons vegetable oil</li>
+            <li>1 teaspoon salt</li>
+        </ingredient>
+        <recipetext>
+            <li>In a large bown, mix flour, sugar, baking powder and salt. Make a well in the center, and pour in milk, egg and oil. Mix until smooth.</li>
+            <li>Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using aproximately 1/4 cup for each pancake. Brown on both sides and serve hot.</li>
+        </recipetext>
+        <url>recipes/pancakes</url>
+        <video>Video URL</video>
+        <quantity>15</quantity>
+        <imagepath>../images/pancakes.png</imagepath>
+        <imageurl>/images/pancakes.png</imageurl>
+        <comments></comments>
+        <source>Interwebs</source>
+        <nutrition>
+                <li>Näringsvärde /100g</li>
+                <li>Energi 1820kJ/512kcal</li>
+                <li>Protein 3g</li>
+                <li>Kolhydrater 82g</li>
+                <li>Fett 15g</li>
+                <li>Kostfiber 1,2g</li>
+                <li>Natrium 0,01g</li>
+        </nutrition>
+        <rating>4.9</rating>
+        <category>sweet</category>
+        <category>best of tastyrecipes</category>
+    </recipe>
+</cookbook>

@@ -1,0 +1,97 @@
+h2 {
+    font-size: 20px;
+    background-color: #eeeeee; 
+}
+div.subdiv {
+    padding: .5em;
+    margin: .5em;
+}
+
+
+/**** foodname div ****/
+#foodname {
+    border-style: solid;
+    border-width: .15em;
+    height: 5%;
+}
+#foodname h1 {
+    font-size: 24px;
+    background-color: #eeeeee;
+}
+
+/**** ingredients div ****/
+#ingredients {
+    border-style: solid;
+    border-width: .15em;
+}
+#ingredients ul {
+    list-style: circle;
+    margin-top: .5em;
+    padding-left: 1em;
+}
+#ingredients li {
+    display: list-item; /* display it like a list item */
+}
+
+/**** directions div ****/
+#directions {
+    border-style: solid;
+    border-width: .15em;
+}
+#directions ol {
+    list-style: decimal;
+    margin-top: .5em;
+    padding-left: 1em;
+}
+#directions li {
+    display: list-item;
+}
+
+
+/**** picture div ****/
+#picture {
+    border-style: solid;
+    border-width: .15em;
+}
+#picture img {
+    max-width: 100%;
+}
+
+/**** nutrifacts div ****/
+#nutrifacts {
+    border-style: solid;
+    border-width: .15em;
+}
+#nutrifacts table {
+    width: 100%;
+    margin-top: .5em;
+}
+
+
+/**** comments div ****/
+#comments {
+    border-style: solid;
+    border-width: .15em;
+}
+.comment {
+    border-style: solid;
+    border-width: .15em;
+    margin-top: .5em;
+    padding: .5em;
+    border-radius: 5px;
+    overflow: auto; /* handle overflowing comments */
+}
+.comment h3 {
+    font-size: 18px;
+    background-color: #F4FA58;
+}
+.commentform {
+    margin-top: .5em;
+    padding: 1em;
+}
+.commentform textarea {
+    resize: none;
+    margin-top: .5em;
+    width: 80%;
+}
+
