@@ -4,6 +4,7 @@
 @stop
 @section('additional_head')
     {{ Html::style("css/recipe.css") }} 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     {{ Html::script('js/recipe.js') }}
 @stop
@@ -46,7 +47,7 @@
                     <div class="commentform">
                     @if (Auth::check())
                         <form ng-submit="cctrl.postComment()">
-                            <input type="text" placeholder="Comment" ng-model="cctrl.comment">
+                            <input type="text" placeholder="Comment" ng-model="cctrl.formdata.comment">
                             <input type="submit" value="Post comment">
                         </form>
                     @else

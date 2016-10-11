@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use App\Comment;
+use Illuminate\Support\Facades\Input;
 
 class CommentController extends Controller
 {
@@ -26,14 +27,22 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        Comment::create([
-            'recipe' => Input::get('recipe'),
-            'user' => Auth::user()->id,
-            'comment' => Input::get('comment'),
-            'username' => Auth::user()->name
-        ]);
+        return $request->all();
 
-        return Response::json(['success' => true]);
+        // If the user is logged in, accept the comment
+        if(Auth::check()) {
+            Comment::create([
+                'recipe' => Input::get('recipe'),
+                'user' => Auth::user()->id,
+                'comment' => Input::get('comment'),
+                'username' => Auth::user()->name
+            ]);
+
+            return Response::json(['success' => true]);
+
+        } else {
+            return Response::json(['success' => false]);
+        }
     }
 
     /**
