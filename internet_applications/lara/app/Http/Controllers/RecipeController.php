@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Comment;
 
 class RecipeController extends Controller {
     public function showRecipe($recipe) {
@@ -18,7 +19,7 @@ class RecipeController extends Controller {
             $recipeid = $xml->recipe[0]->id;
 
             // Get comments
-            $comments = DB::table('comments')->select('comment', 'user', 'username', 'id')->where('recipe', '=', $recipeid)->get();
+            $comments = Comment::where('recipe', '=', $recipeid)->get();
 
         }
         // return the view
@@ -44,10 +45,17 @@ class RecipeController extends Controller {
                 // delete comment or write new?
                 if($request->input('id') !== NULL) {
                     // delete the comment if written by this user
-                    DB::table('comments')->where('id', '=', $request->input('id'))->where('user', '=', Auth::user()->id)->delete();
+                    Comment::where('id', '=', $request->input('id'))->where('user', '=', Auth::user()->id)->delete();
                 } else {
                     // put into db
-                    DB::table('comments')->insert(['comment' => $comment, 'user' => Auth::user()->id, 'username' => Auth::user()->name, 'recipe' => $recipeid]);
+                    $newcomment = new Comment;
+
+                    $newcomment->comment = $comment;
+                    $newcomment->user = Auth::user()->id;
+                    $newcomment->username = Auth::user()->name;
+                    $newcomment->recipe = $recipeid;
+
+                    $newcomment->save();
                 }
             }
         }

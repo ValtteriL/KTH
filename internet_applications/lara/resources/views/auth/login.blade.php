@@ -2,6 +2,10 @@
 @section('title')
     <title>Login | Tasty Recipes</title>
 @stop
+@section('additional_head')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+@stop
 @section('middle_section')
 <div class="container">
     <div class="row">
@@ -9,7 +13,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    <form class="form-horizontal" id="loginformi" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -67,4 +71,5 @@
         </div>
     </div>
 </div>
+{{ Html::script('js/loginvalidator.js') }}
 @endsection

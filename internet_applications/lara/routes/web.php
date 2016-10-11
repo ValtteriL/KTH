@@ -29,3 +29,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+// API
+Route::get('/api/comments/{recipeid}', 'CommentController@index');
+Route::post('/api/comments/{recipeid}', 'CommentController@store');
+Route::post('/api/comments/delete/{commentid}', 'CommentController@destroy');

@@ -2,6 +2,10 @@
 @section('title')
     <title>Register | Tasty Recipes</title>
 @stop
+@section('additional_head')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+@stop
 @section('middle_section')
 <div class="container">
     <div class="row">
@@ -9,7 +13,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form id="kek" class="form-horizontal" name="registration" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -81,4 +85,5 @@
         </div>
     </div>
 </div>
+    {{ Html::script('js/regvalidator.js') }}
 @endsection
