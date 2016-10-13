@@ -17,6 +17,7 @@ class CreateTableComments extends Migration
             $table->increments('id'); // primary key
             $table->integer('recipe'); 
             $table->integer('user'); 
+            $table->string('username', 30);
             $table->string('comment', 300); // comment varchar(300) 
             $table->timestamps();
         }); 

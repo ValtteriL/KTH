@@ -10,6 +10,9 @@
 @stop
 @section('middle_section')
 @if (isset($xml))
+        <script type="text/javascript">
+            var _recipeId = {{$xml->recipe[0]->id}};
+        </script>
         <!-- Middle section -->
         <div class="section group">
             <div class="col span_1_of_2"> <!-- Left div -->
@@ -38,7 +41,7 @@
                             <h3>{[{comment.username}]}</h3>
                             <p>{[{comment.comment}]}</p> 
                             @if(Auth::check())
-                                <form ng-if="comment.username == {{Auth::user()->name}}" ng-submit="cctrl.deleteComment(comment.id)"> <!-- check if this user is author! -->
+                                <form ng-if="comment.username == '{{Auth::user()->name}}'" ng-submit="cctrl.deleteComment(comment.id)"> <!-- check if this user is author! -->
                                 <input type="hidden" value="{[{comment.id}]}">
                                 <input type="submit" value="Delete">
                                 </form>

@@ -30,11 +30,15 @@ commentingapp.factory('CommentService', function($http) {
 });
 
 // Controller
-commentingapp.controller('commentsController', function($http, CommentService) {
+commentingapp.controller('commentsController', function($window, $http, CommentService) {
     var cctrl = this;
-    cctrl.recipeid = 1;
+
+    // get the recipe id
+    cctrl.recipeId = $window._recipeId;
+    
+    // data to be sent when comment is sumbitted
     cctrl.formdata = {
-        'recipe' : 1
+        'recipe' : cctrl.recipeId
     };
 
     // first fetch comments
@@ -45,15 +49,15 @@ commentingapp.controller('commentsController', function($http, CommentService) {
 
     // post new comment
     cctrl.postComment = function() {
-        console.log(cctrl.formdata);
 
         CommentService.save(cctrl.formdata)
             .success(function(data) {
+                // refresh comments
                 CommentService.fetch(cctrl.recipeId)
                     .success(function(data) {
                         cctrl.commentData = data;
                     });
-                cctrl.comment = '';
+                cctrl.formdata.comment = '';
             })
 
             .error(function(data) {
@@ -63,11 +67,12 @@ commentingapp.controller('commentsController', function($http, CommentService) {
 
     // delete comment
     cctrl.deleteComment = function(commentId) {
-        CommentService.destroy(commentId)
+        CommentService.delete(commentId)
             .success(function(data) {
+                // refresh comments
                 CommentService.fetch(cctrl.recipeId)
                     .success(function(data) {
-                        cctrl.comments = data;
+                        cctrl.commentData = data;
                     });
             });
     };

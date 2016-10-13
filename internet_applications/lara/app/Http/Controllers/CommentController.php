@@ -14,9 +14,9 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return \Response::json(Comment::get());
+        return \Response::json(Comment::where('recipe', $id)->get());
     }
 
     /**
@@ -27,21 +27,22 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        //return $request->all();
 
         // If the user is logged in, accept the comment
         if(Auth::check()) {
-            Comment::create([
-                'recipe' => Input::get('recipe'),
-                'user' => Auth::user()->id,
-                'comment' => Input::get('comment'),
-                'username' => Auth::user()->name
-            ]);
+            $newcomment = new Comment;
 
-            return Response::json(['success' => true]);
+            $newcomment->comment = $request->input('comment');
+            $newcomment->user = Auth::user()->id;
+            $newcomment->username = Auth::user()->name;
+            $newcomment->recipe = $request->input('recipe');
+            $newcomment->save();
+
+            return \Response::json(['success' => true]);
 
         } else {
-            return Response::json(['success' => false]);
+            return \Response::json(['success' => false]);
         }
     }
 
@@ -53,8 +54,8 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        Comment::destroy($id);
+        Comment::where('id', $id)->where('user', Auth::user()->id)->delete();
 
-        return Response::json(['success' => true]);
+        return \Response::json(['success' => true]);
     }
 }
