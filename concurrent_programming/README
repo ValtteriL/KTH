@@ -1,0 +1,11 @@
+Author: Valtteri Lehtinen
+
+Simple program that finds all palindromic words in a given words file and writes them to a file called palindromics.
+The words file has to be named words.
+
+usage: ./a.out <number of worker threads>
+
+note: if there are no workers, no work will be done! ;-)
+
+NOTE: this program is highly inefficient, because it uses lots of file i/o.
+in /memory is a version which reads the words file ony once and is over 10 times faster!
