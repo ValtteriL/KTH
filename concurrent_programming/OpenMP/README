@@ -1,0 +1,4 @@
+Author: Valtteri Lehtinen
+
+Threaded solution to the 8 queens problem using OpenMP.
+Usage: ./a.out
