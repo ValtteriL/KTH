@@ -1,0 +1,7 @@
+Small shell 
+by Valtteri Lehtinen & Jacob Kristersson
+
+USAGE. ./shell
+		
+DESCRIPTION: small shell with a few inbuilt commands(digenv, cd, exit).
+

@@ -1,0 +1,9 @@
+Authors: Valtteri Lehtinen & Jacob Kristersson
+
+Implementation of the malloc function with different block maintaining strategies.
+
+COMPILATION: gcc -Wall -DSTRATEGY=4 malloc.c tstrealloc.c brk.h malloc.h tst.h -o reallocprogram
+to compile with other tests, just replace the tstrealloc.c with the specific testing .c file 
+
+block maintaining can be changed by changing the STRATEGY compiler flag, 1 = first-fit, 2 = worst-fit, 3 = best-fit, 4 = quick-fit 
+
