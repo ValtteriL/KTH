@@ -22,7 +22,9 @@ void validate(char* solution, long* counter)
             }
         }
     }
+#pragma omp critical
     // this solution passed all validation!
+    // and critical section
     *counter += 1;
 }
 
