@@ -1,0 +1,10 @@
+Author: Valtteri Lehtinen
+
+Usage: ./a.out <number of workers>
+
+
+Simulation of unisex toilet using pthreads. Threads are workers and they use the unisex toilet. 
+
+The usage of toilet is controlled using semaphores and the solution is fair; everyone who wants to use the toilet eventually gets to do so.
+
+Men can only go in if there's men in the toilet, women only if there's women. We assume the toilet can be used by any number of people at the same time.
