@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <omp.h>
 
+long position; // position in the memory blob of possibilities
 
 /* validate solution (check diagonal lines) */
 void validate(char* solution, long* counter)
@@ -22,10 +24,10 @@ void validate(char* solution, long* counter)
             }
         }
     }
-#pragma omp critical
-    // this solution passed all validation!
-    // and critical section
-    *counter += 1;
+
+    // protect read/update
+    #pragma omp atomic
+    *counter += 1; // this solution passed all validation!
 }
 
 
@@ -39,31 +41,50 @@ void swap(char *x, char *y)
 }
 
 /* generate all permutations */
-void permute(char *a, int l, int r, long* counter)
+void permute(char *a, int l, int r, long* counter, char* possibilities)
 {
-    #pragma omp parallel
+    int i;
+    if (l == r)
     {
-        #pragma omp single // executed by just one thread!
+        memcpy(possibilities+8*position, a, 8); // copy the solution to the memory
+        position++; // increment position
+    }
+    else
+    {
+        for (i = l; i <= r; i++)
         {
-            int i;
-            if (l == r)
-            {
-                #pragma omp task // tasks are executed in parallel
-                {
-                    validate(a, counter);
-                }
-            }
-            else
-            {
-                for (i = l; i <= r; i++)
-                {
-                    swap((a+l), (a+i));
-                    permute(a, l+1, r, counter);
-                    swap((a+l), (a+i)); //backtrack
-                }
-            }
+            swap((a+l), (a+i));
+            permute(a, l+1, r, counter, possibilities);
+            swap((a+l), (a+i)); //backtrack
         }
     }
+}
+
+void prepermute(double* time, char *a, int l, int r, long* counter)
+{
+    /* allocate memory for all possible solutions */
+    char* possibilities = malloc(sizeof(char)*8 * 8*7*6*5*4*3*2*1);
+
+    /* position initially zero */
+    position = 0;
+
+    /* fill with solutions */
+    permute(a,l,r,counter,possibilities);
+    
+    /* use threads to validate all solutions */
+    long i;
+    double t1 = omp_get_wtime();
+#pragma omp parallel for
+    for(i=0; i<position; i++)
+    {
+        validate(possibilities+i*8, counter);
+    }
+
+    /* take the time */
+    *time = omp_get_wtime()-t1;
+
+    /* free the allocated memory */
+    free(possibilities);
 }
 
 
@@ -72,19 +93,18 @@ int main(int argc, char* argv[])
 {
     /* number of threads is decided by openmp */
     /* for comparison we might want to set the number of threads */
-    //omp_set_num_threads(4);
+    omp_set_dynamic(0);
+    omp_set_num_threads(1);
 
     /* queens cannot be on same line -> generate all combinations of str, 8! alternatives */
     char str[] = "12345678";
     long amount = 0;
 
-    double t1, t2;
-    t1 = omp_get_wtime();
-    permute(str, 0, strlen(str)-1, &amount);
-    
-    t2 = omp_get_wtime();
-    printf("Elapsed time: %g\n",t2-t1);
-    
+    double time;
+    prepermute(&time, str, 0, strlen(str)-1, &amount);
+
+    printf("Elapsed time: %g\n", time);
+
     printf("Solutions: %ld\n",amount);
 
     return 0;
