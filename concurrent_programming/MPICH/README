@@ -1,0 +1,7 @@
+Author: Valtteri Lehtinen
+
+A solution to the Stable Marriage Problem using MPICH to implement Gale-Shapley algorithm
+
+https://en.wikipedia.org/wiki/Stable_marriage_problem
+
+
