@@ -1,0 +1,11 @@
+
+ Author: Valtteri Lehtinen
+
+ Unfair solution to repair station
+ Unfair because it might starve some threads waiting for reparation by giving precedence 
+ to same type of vehicles that are being repaired
+ 
+ if we used notifyall() instead of notify(), the solution would be even more unfair,
+ because then there would be less chances for different type of vehicle to enter the reparation.
+ It might make the program more effective though
+
