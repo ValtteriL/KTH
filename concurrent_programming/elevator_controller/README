@@ -1,0 +1,63 @@
+Author: Valtteri Lehtinen
+Algorithm inspiration and help from: Martin Pola & Madeleine Berner, https://github.com/Fluffigpegasus/greenelevator
+
+Multithreaded elevator controller for variable number of elevators and variable number of floors.
+Meant to be used to control a graphical interface provided by the course staff (elevator.jar).
+Developed using pthreads API.
+
+Usage:
+Start the frontend: java -jar elevator.jar -tcp -number <number of elevators> -top <number of floors>
+Start the controller: ./a.out <hostname> <port> <number of elevators>
+
+If no arguments are provided, the program defaults to localhost, port 4711 and 3 elevators.
+
+By default, the program will print trace of the tasklists of elevators as well as the global tasklist.
+To disable the printouts, just remove the define from functions.h
+
+
+## description of the algorithm ##
+When the program starts, it will create a thread for each elevator and the master thread becomes an event listener.
+
+Each thread has its own (linked)list of tasks for holding tasks and lock and condition variable for synchronization.
+There's also a global tasklist for tasks that haven't been assigned to any elevator yet.
+
+When idle, elevator thread waits suspended. As buttons are pressed, the events are forwarded to the elevators they get assigned to,
+and the elevator thread gets waking signal from the main thread.
+
+When working on a task, elevator moves to the direction of the destination floor and probes the position continuously busy waiting.
+
+
+
+# Cabin buttons #
+As a button inside the cabin of some elevator is pressed, the main thread will put the task into the elevator's tasklist as follows:
+
+    If the tasklist is empty
+        put the task as first
+    else if there's a duplicate task
+        do nothing
+    else if the current position is below the destination floor
+        put the task in front of the first task that has bigger floor or as last one
+    Else
+        put the task in front of the first task that has lower floor or as last one
+
+Pressing stop button causes all tasks in the elevator's own tasklist to be discarded and the elevator stops.
+No further tasks will be assigned to stopped elevators until some other button is pressed inside the cabin.
+
+
+# Floor buttons #
+When a floor button is pressed
+
+Main thread checks global tasklist for duplicate task
+If duplicate task found
+    do nothing
+Else
+    the main thread sorts all the elevators by the distance to the floor the button was pressed on.
+    
+    Starting from the nearest elevator the main thread checks if:
+        1. the elevator is idle
+        2. the elevator is going by the target floor to the same direction
+    If 1 or 2 is true, the task is assigned to that elevator.
+
+    If some task doesn't get assigned to any elevator, it's put on a global tasklist.
+    Next time some elevator becomes idle, it will take the oldest task from the global tasklist.
+
